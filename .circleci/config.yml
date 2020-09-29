@@ -9,7 +9,7 @@ jobs:
   do_build:
     docker:
       #- image: 'circleci/openjdk:11.0.8-jdk'
-      - image: 'adoptopenjdk:11'
+      - image: 'adoptopenjdk/openjdk11'
     steps:
     - run: cat /etc/*release #get Linux release, in this case it's Ubuntu
     #Create Ant Dir
