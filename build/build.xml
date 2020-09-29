@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="build-all" name="Create project SFIPwHash for CI/CD test">
+    <!--ANT 1.7 is required                                        -->
+	<property file="build.properties" />
+
+	<target name="create_jar">
+        <jar destfile="../deploy/SFIPwHash.jar" filesetmanifest="mergewithoutmain">
+            <manifest>
+                <attribute name="Main-Class" value="xpertek.security.SFIPwHash"/>
+                <attribute name="Class-Path" value="."/>
+            </manifest>
+            <fileset dir="../bin"/>
+        </jar>
+    </target>
+
+	<target name="build-all" depends="create_jar">
+	</target>
+</project>
