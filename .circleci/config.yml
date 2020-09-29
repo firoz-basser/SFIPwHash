@@ -14,6 +14,13 @@ jobs:
     - run: cat /etc/*release #get Linux release, in this case it's Ubuntu
     #Create Ant Dir
     - run: mkdir -p /opt/ant/
+
+    # these two commands to update package repository
+    - run: apt-get update
+    - run: apt-get upgrade -qy
+    # install wget packages
+    - run: apt-get install wget
+
     #Download
     - run: wget http://downloads.apache.org//ant/binaries/apache-ant-1.10.8-bin.tar.gz -P /opt/ant
     #Unpack Ant
@@ -21,11 +28,6 @@ jobs:
     # Remove tar file
     - run: rm -f /opt/ant/apache-ant-1.10.8-bin.tar.gz
 
-    # these two commands to update package repository
-    #- run: apt-get update
-    #- run: apt-get upgrade -qy
-    # install zip and unzip packages
-    #- run: apt-get install zip unzip -qy
     - checkout
     - run: pwd -P
     - run: ls
