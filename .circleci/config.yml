@@ -13,13 +13,13 @@ jobs:
     steps:
     - run: cat /etc/*release #get Linux release, in this case it's Ubuntu
     #Create Ant Dir
-    - run mkdir -p /opt/ant/
+    - run: mkdir -p /opt/ant/
     #Download
-    - run wget http://downloads.apache.org//ant/binaries/apache-ant-1.10.8-bin.tar.gz -P /opt/ant
+    - run: wget http://downloads.apache.org//ant/binaries/apache-ant-1.10.8-bin.tar.gz -P /opt/ant
     #Unpack Ant
-    - run tar -xvzf /opt/ant/apache-ant-1.10.8-bin.tar.gz -C /opt/ant/
+    - run: tar -xvzf /opt/ant/apache-ant-1.10.8-bin.tar.gz -C /opt/ant/
     # Remove tar file
-    - run rm -f /opt/ant/apache-ant-1.10.8-bin.tar.gz
+    - run: rm -f /opt/ant/apache-ant-1.10.8-bin.tar.gz
 
     # these two commands to update package repository
     #- run: apt-get update
@@ -27,8 +27,8 @@ jobs:
     # install zip and unzip packages
     #- run: apt-get install zip unzip -qy
     - checkout
-    - run pwd -P
-    - ls
+    - run: pwd -P
+    - run: ls
 
 
 # Orchestrate or schedule a set of jobs
