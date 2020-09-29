@@ -4,9 +4,35 @@ version: 2.1
 orbs:
   # Declare a dependency on the welcome-orb
   welcome: circleci/welcome-orb@0.4.1
+
+jobs:
+  do_build:
+    docker:
+      #- image: 'circleci/openjdk:11.0.8-jdk'
+      - image: 'adoptopenjdk:11'
+    steps:
+    - run: cat /etc/*release #get Linux release, in this case it's Ubuntu
+    #Create Ant Dir
+    - run mkdir -p /opt/ant/
+    #Download
+    - run wget http://downloads.apache.org//ant/binaries/apache-ant-1.10.8-bin.tar.gz -P /opt/ant
+    #Unpack Ant
+    - run tar -xvzf /opt/ant/apache-ant-1.10.8-bin.tar.gz -C /opt/ant/
+    # Remove tar file
+    - run rm -f /opt/ant/apache-ant-1.10.8-bin.tar.gz
+
+    # these two commands to update package repository
+    #- run: apt-get update
+    #- run: apt-get upgrade -qy
+    # install zip and unzip packages
+    #- run: apt-get install zip unzip -qy
+    - checkout
+    - run pwd -P
+    - ls
+
+
 # Orchestrate or schedule a set of jobs
 workflows:
-  # Name the workflow "welcome"
   welcome:
     # Run the welcome/run job in its own container
     jobs:
