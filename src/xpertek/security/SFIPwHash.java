@@ -17,7 +17,7 @@ public class SFIPwHash {
 			if(args.length>0)
 				pw=(String)args[0];
 			else
-				pw="password";
+				pw="password44";
 			hash = getHash(pw, "SHA");
 			System.out.println("Hash of \""+pw +"\" is "+hash);
 		} catch (Exception e) {

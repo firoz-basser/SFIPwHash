@@ -39,8 +39,8 @@ jobs:
     - run: echo "export PATH=$PATH:$ANT_HOME/bin" >> $BASH_ENV
     #- run: echo $PATH
     - run: cd build && ant
-    - run: ls deploy
-    - run: java -cp SFIPwHash.jar xpertek.security.SFIPwHash gadero
+    #- run: ls deploy
+    - run: java -cp deploy/SFIPwHash.jar xpertek.security.SFIPwHash gadero
 
 
 # Orchestrate or schedule a set of jobs
