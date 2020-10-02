@@ -42,7 +42,7 @@ jobs:
       - run: cd build && ant
       - run: find .
       #- run: ls deploy
-      - run: java -cp deploy/SFIPwHash.jar xpertek.security.SFIPwHash gadero
+      - run: cd deploy && java -cp SFIPwHash.jar xpertek.security.SFIPwHash myTopSecretPwd
 
 
 # Orchestrate or schedule a set of jobs
