@@ -1,6 +1,5 @@
 package xpertek.security;
 
-import java.security.MessageDigest;
 import java.util.Base64;
 
 public class SFIPwHash {
@@ -17,7 +16,7 @@ public class SFIPwHash {
 			if(args.length>0)
 				pw=(String)args[0];
 			else
-				pw="password44";
+				pw="password444";
 			hash = getHash(pw, "SHA");
 			System.out.println("Hash of \""+pw +"\" is "+hash);
 		} catch (Exception e) {
@@ -33,13 +32,13 @@ public class SFIPwHash {
 			
 			if (data.trim().length() == 0)
 				return "";
+			//MessageDigest md;
+			//MessageDigest md = MessageDigest.getInstance(algorithm);
+			//md.reset();
 			
-			MessageDigest md = MessageDigest.getInstance(algorithm);
-			md.reset();
-			
-			byte[] bin = md.digest(data.getBytes());
+			//byte[] bin = md.digest(data.getBytes());
 
-			return Base64.getEncoder().encodeToString(bin);			
+			return Base64.getEncoder().encodeToString(data.getBytes());			
 
 		}
 		catch (Exception e)
