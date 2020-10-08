@@ -41,7 +41,7 @@ jobs:
       #- run: echo $PATH
       - run: cd build && ant
       - run: find .
-      - run: cd deploy && ll && java -cp SFIPwHash.jar xpertek.security.SFIPwHash myTopSecretPwd
+      - run: cd deploy && ls && java -cp SFIPwHash.jar xpertek.security.SFIPwHash myTopSecretPwd
 
 
 # Orchestrate or schedule a set of jobs
