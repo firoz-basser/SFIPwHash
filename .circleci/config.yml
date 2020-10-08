@@ -23,7 +23,7 @@ jobs:
       - run: apt-get install wget
 
       #Download
-      - run: wget http://downloads.apache.org//ant/binaries/apache-ant-1.10.8-bin.tar.gz -P /opt/ant
+      - run: wget http://downloads.apache.org//ant/binaries/apache-ant-1.10.9-bin.tar.gz -P /opt/ant
       #Unpack Ant
       - run: tar -xvzf /opt/ant/apache-ant-1.10.8-bin.tar.gz -C /opt/ant/
       # Remove tar file
