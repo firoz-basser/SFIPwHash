@@ -1,9 +1,6 @@
 # Use the latest 2.1 version of CircleCI pipeline process engine. See: https://circleci.com/docs/2.0/configuration-reference
 version: 2.1
 # Use a package of configuration called an orb.
-orbs:
-  # Declare a dependency on the welcome-orb
-  welcome: circleci/welcome-orb@0.4.1
 
 jobs:
   do_build:
@@ -30,18 +27,17 @@ jobs:
       - run: rm -f /opt/ant/apache-ant-1.10.9-bin.tar.gz
 
       - checkout
-      #- run: pwd -P
-      #- run: ls /opt/ant
-      #- run: cd build
       - run: pwd -P
-      #- run: ls
       # push environmental variables to Bash environment so visible across all run statements
       - run: echo "export ANT_HOME=/opt/ant/apache-ant-1.10.9" >> $BASH_ENV
       - run: echo "export PATH=$PATH:$ANT_HOME/bin" >> $BASH_ENV
       #- run: echo $PATH
       - run: javac src/xpertek/security/*.java -d bin
       - run: cd build && ant 
-      - run: ls && cd deploy && ls && java -cp SFIPwHash.jar xpertek.security.SFIPwHash myTopSecretPwd
+      - run: cd deploy && java -cp SFIPwHash.jar xpertek.security.SFIPwHash myTopSecretPwd
+      - run: cd ../src/test && ant
+      - store_test_results:
+          path: ~/testreport/ 
 
 
 # Orchestrate or schedule a set of jobs
