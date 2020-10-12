@@ -41,7 +41,7 @@ jobs:
       #- run: echo $PATH
       - run: javac src/xpertek/security/*.java -d bin
       - run: cd build && ant 
-      - run: ls && cd .. && cd deploy && ls && java -cp SFIPwHash.jar xpertek.security.SFIPwHash myTopSecretPwd
+      - run: ls && cd deploy && ls && java -cp SFIPwHash.jar xpertek.security.SFIPwHash myTopSecretPwd
 
 
 # Orchestrate or schedule a set of jobs
