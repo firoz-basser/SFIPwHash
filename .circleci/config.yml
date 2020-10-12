@@ -35,9 +35,9 @@ jobs:
       - run: javac src/xpertek/security/*.java -d bin
       - run: cd build && ant 
       - run: cd deploy && java -cp SFIPwHash.jar xpertek.security.SFIPwHash myTopSecretPwd
-      - run: cd ../src/test && ant
+      - run: cd src/test && ant
       - store_test_results:
-          path: ~/testreport/ 
+          path: ~/src/test/testreport/ 
 
 
 # Orchestrate or schedule a set of jobs
