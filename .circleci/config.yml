@@ -40,8 +40,8 @@ jobs:
       - run: echo "export PATH=$PATH:$ANT_HOME/bin" >> $BASH_ENV
       #- run: echo $PATH
       - run: javac src/xpertek/security/*.java -d bin
-      - run: cd build && ant 
-      - run: cd ../deploy && ls && java -cp SFIPwHash.jar xpertek.security.SFIPwHash myTopSecretPwd
+      - run: cd build && ant
+      - run: cd .. && cd deploy && ls && java -cp SFIPwHash.jar xpertek.security.SFIPwHash myTopSecretPwd
 
 
 # Orchestrate or schedule a set of jobs
