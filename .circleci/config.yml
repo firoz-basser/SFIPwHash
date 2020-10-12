@@ -39,7 +39,9 @@ jobs:
       - run: echo "export ANT_HOME=/opt/ant/apache-ant-1.10.9" >> $BASH_ENV
       - run: echo "export PATH=$PATH:$ANT_HOME/bin" >> $BASH_ENV
       #- run: echo $PATH
-      - run: cd build && ant && cd ../deploy && ls && java -cp SFIPwHash.jar xpertek.security.SFIPwHash myTopSecretPwd
+      - run: javac src/xpertek/security/*.java -d bin
+      - run: cd build && ant 
+      - run: cd ../deploy && ls && java -cp SFIPwHash.jar xpertek.security.SFIPwHash myTopSecretPwd
 
 
 # Orchestrate or schedule a set of jobs
