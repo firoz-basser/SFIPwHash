@@ -36,6 +36,7 @@ jobs:
       - run: cd build && ant 
       - run: cd deploy && java -cp SFIPwHash.jar xpertek.security.SFIPwHash myTopSecretPwd
       - run: cd src/test && ant
+      - run: ls src/test/testreport/
       - store_test_results:
           path: src/test/testreport/ 
 
